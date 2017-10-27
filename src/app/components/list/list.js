@@ -13,7 +13,21 @@
   function prelloListController() {
     this.$onInit = function () {
       this.title = this.list.title;
-      this.cards = this.list.cards;
+      this.cards = this.list.cards || [];
     };
+
+    this.addNewCard = _addNewCard;
+
+    function _addNewCard(name) {
+      if (!name) {
+        return;
+      }
+
+      this.cards.push({
+        title: name
+      });
+
+      delete this.newCardName;
+    }
   }
 })(angular);

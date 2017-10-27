@@ -3,12 +3,28 @@
 
   angular.module('app').component('prelloCard', {
     templateUrl: 'app/components/card/card.html',
-    controller: prelloCardController
+    controller: prelloCardController,
+    bindings: {
+      card: '='
+    }
   });
 
   /** @ngInject */
   function prelloCardController() {
-    this.title = 'New Card';
-    this.description = '';
+    this.$onInit = function () {
+      this.title = this.card.title;
+    };
+
+    this.addDescription = _addDescription;
+
+    function _addDescription(description) {
+      if (!description) {
+        return;
+      }
+
+      this.description = description;
+
+      delete this.newCardDescription;
+    }
   }
 })(angular);

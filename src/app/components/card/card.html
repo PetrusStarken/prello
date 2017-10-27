@@ -1,1 +1,10 @@
-<h3>Card</h3>
+<div class="prello-card">
+  <h3 class="prello-card-title" ng-bind="$ctrl.title"></h3>
+  <p class="prello-card-description" ng-bind="$ctrl.description" ng-if="$ctrl.description"></p>
+
+  <form role="form" ng-submit="$ctrl.addDescription($ctrl.newCardDescription)" ng-if="!$ctrl.description">
+    <md-input-container>
+      <input aria-label="Type the description for your card" ng-model="$ctrl.newCardDescription" placeholder="Add description" autocomplete="off">
+    </md-input-container>
+  </form>
+</div>

@@ -1,6 +1,21 @@
 <md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline" ng-bind="$ctrl.title"></span>
+    </md-card-title-text>
+  </md-card-title>
+
   <md-card-content>
-    <h2 ng-bind="$ctrl.title"></h2>
+
+    <prello-card ng-repeat="card in $ctrl.cards" card="card"></prello-card>
     
   </md-card-content>
+
+  <md-card-actions layout="column">
+    <form role="form" ng-submit="$ctrl.addNewCard($ctrl.newCardName)">
+      <md-input-container>
+        <input aria-label="Type the name for your new card" ng-model="$ctrl.newCardName" placeholder="Add new card" autocomplete="off">
+      </md-input-container>
+    </form>
+  </md-card-actions>
 </md-card>
