@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA,gCACE,UAAY,CACb,AAED,kDACE,YAAc,CACf","file":"../../styles/app-7451dd7c73.css","sourcesContent":["prello-board md-input-container {\n  width: 100%;\n}\n\nprello-board md-input-container .md-errors-spacer {\n  min-height: 0;\n}\n\n"]}
