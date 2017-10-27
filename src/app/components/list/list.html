@@ -1,23 +1,9 @@
-<md-card>
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline" ng-bind="$ctrl.title"></span>
-    </md-card-title-text>
-  </md-card-title>
+<section class="list" ng-drop="true" ng-drop-success="$ctrl.onDropCard($data)">
+  <header ng-bind="$ctrl.title"></header>
 
-  <md-card-content ng-drop="true" ng-drop-success="$ctrl.onDropCard($data)">
+  <prello-card ng-repeat="card in $ctrl.cards" card="card" ng-drag="true" ng-drag-data="card" ng-drag-success="$ctrl.onDragCard($data)"></prello-card>
 
-    <div class="prello-cards" ng-repeat="card in $ctrl.cards">
-      <prello-card card="card" ng-drag="true" ng-drag-data="card" ng-drag-success="$ctrl.onDragCard($data)"></prello-card>
-    </div>
-    
-  </md-card-content>
-
-  <md-card-actions layout="column">
-    <form role="form" ng-submit="$ctrl.addNewCard($ctrl.newCardName)">
-      <md-input-container>
-        <input aria-label="Type the name for your new card" ng-model="$ctrl.newCardName" placeholder="Add new card" autocomplete="off">
-      </md-input-container>
-    </form>
-  </md-card-actions>
-</md-card>
+  <form role="form" ng-submit="$ctrl.addNewCard($ctrl.newCardName)">
+    <input aria-label="Type the name for your new card" ng-model="$ctrl.newCardName" placeholder="Add new card..." autocomplete="off" class="input-new">
+  </form>
+</section>

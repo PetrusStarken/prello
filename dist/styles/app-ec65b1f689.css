@@ -1,0 +1,2 @@
+[ng-drag]{-moz-user-select:-moz-none;-webkit-user-select:none;-ms-user-select:none;user-select:none;cursor:move}[ng-drag].drag-over{border:1px solid red}[ng-drag].dragging{opacity:.5}[ng-drop]{margin:20px auto;position:relative}[ng-drop].drag-enter{border:5px solid red}[ng-drop] span.title{display:block;position:absolute}[ng-drop] div{position:relative;z-index:1}prello-board md-input-container{width:100%}prello-board md-input-container .md-errors-spacer{min-height:0}
+/*# sourceMappingURL=../maps/styles/app-ec65b1f689.css.map */

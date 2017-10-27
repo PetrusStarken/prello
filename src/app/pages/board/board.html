@@ -1,13 +1,9 @@
 <h1 ng-bind="$ctrl.title"></h1>
 
-<md-content layout="row">
+<section class="lists">
+  <prello-list ng-repeat="list in $ctrl.lists" guid="list.guid"></prello-list>
 
-  <prello-list flex="20" new="true" ng-repeat="list in $ctrl.lists" guid="list.guid"></prello-list>
-
-  <form role="form" ng-submit="$ctrl.addNewList($ctrl.newListName)" flex="20">
-    <md-input-container>
-      <input aria-label="Type the name for your new list" ng-model="$ctrl.newListName" placeholder="Add new list">
-    </md-input-container>
+  <form role="form" ng-submit="$ctrl.addNewList($ctrl.newListName)">
+    <input aria-label="Type the name for your new list" ng-model="$ctrl.newListName" placeholder="Add new list..." class="input-new">
   </form>
-
-</md-content>
+</section>

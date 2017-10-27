@@ -1,10 +1,13 @@
-<div class="prello-card">
-  <h3 class="prello-card-title" ng-bind="$ctrl.title"></h3>
-  <p class="prello-card-description" ng-bind="$ctrl.description" ng-if="$ctrl.description"></p>
+<article class="card">
 
-  <form role="form" ng-submit="$ctrl.addDescription($ctrl.newCardDescription)" ng-if="!$ctrl.description">
+  <header ng-bind="$ctrl.title" ng-click="$ctrl.edit = !$ctrl.edit" ng-if="!edit"></header>
+
+  <div class="detail" ng-bind="$ctrl.description" ng-if="$ctrl.description"></div>
+
+  <!-- <form role="form" ng-submit="$ctrl.addDescription($ctrl.newCardDescription)" ng-if="!$ctrl.description">
     <md-input-container>
       <input aria-label="Type the description for your card" ng-model="$ctrl.newCardDescription" placeholder="Add description" autocomplete="off">
     </md-input-container>
-  </form>
-</div>
+  </form> -->
+
+</article>
