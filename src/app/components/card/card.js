@@ -13,6 +13,7 @@
   function prelloCardController() {
     this.$onInit = function () {
       this.title = this.card.title;
+      this.description = undefined;
     };
 
     this.addDescription = _addDescription;

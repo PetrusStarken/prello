@@ -5,9 +5,11 @@
     </md-card-title-text>
   </md-card-title>
 
-  <md-card-content>
+  <md-card-content ng-drop="true" ng-drop-success="$ctrl.onDropCard($data)">
 
-    <prello-card ng-repeat="card in $ctrl.cards" card="card"></prello-card>
+    <div class="prello-cards" ng-repeat="card in $ctrl.cards">
+      <prello-card card="card" ng-drag="true" ng-drag-data="card" ng-drag-success="$ctrl.onDragCard($data)"></prello-card>
+    </div>
     
   </md-card-content>
 

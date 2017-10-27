@@ -1,2 +1,5 @@
 angular
-  .module('app', ['ngMaterial']);
+  .module('app', [
+    'ngMaterial',
+    'ngDraggable'
+  ]);
