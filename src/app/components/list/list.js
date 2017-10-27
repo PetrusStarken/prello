@@ -20,6 +20,8 @@
     };
 
     this.addNewCard = _addNewCard;
+    this.addCard = _addCard;
+    this.deleteCard = _deleteCard;
     this.onDragCard = _onDragcard;
     this.onDropCard = _onDropCard;
 
@@ -28,7 +30,7 @@
         return;
       }
 
-      this.cards.push({
+      this.addCard({
         guid: guidService.new(),
         listGuid: this.guid,
         title: name
@@ -38,14 +40,20 @@
     }
 
     function _onDragcard(card) {
-      this.cards = this.cards.filter(function (c) {
-        return (c.guid !== card.guid);
-      });
+      this.deleteCard(card);
     }
 
     function _onDropCard(card) {
       card.listGuid = this.guid;
-      this.cards.push(card);
+      this.addCard(card);
+    }
+
+    function _deleteCard(card) {
+      this.cards = storageService.deleteCard(card);
+    }
+
+    function _addCard(card) {
+      this.cards = storageService.addCard(card);
     }
   }
 })(angular);

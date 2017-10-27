@@ -10,6 +10,8 @@
     this.getListByGuid = _getListByGuid;
     this.getCardsByListGuid = _getCardsByListGuid;
     this.getCardByGuid = _getCardByGuid;
+    this.addCard = _addCard;
+    this.deleteCard = _deleteCard;
 
     return this;
 
@@ -39,6 +41,23 @@
       return _getCardsByListGuid(card.listGuid).cards.find(function (card) {
         return (card.guid === card.guid);
       });
+    }
+
+    function _addCard(card) {
+      var list = _getListByGuid(card.listGuid);
+
+      list.cards.push(card);
+
+      return list.cards;
+    }
+
+    function _deleteCard(card) {
+      var list = _getListByGuid(card.listGuid);
+      list.cards = list.cards.filter(function (c) {
+        return (c.guid !== card.guid);
+      });
+
+      return list.cards;
     }
   }
 })(angular);
