@@ -10,5 +10,19 @@
   function prelloBoardController() {
     this.title = 'Default board';
     this.lists = [];
+
+    this.addNewList = _addNewList;
+
+    function _addNewList(name) {
+      if (!name) {
+        return;
+      }
+
+      this.lists.push({
+        title: name
+      });
+
+      delete this.newListName;
+    }
   }
 })(angular);

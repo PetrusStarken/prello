@@ -3,13 +3,17 @@
 
   angular.module('app').component('prelloList', {
     templateUrl: 'app/components/list/list.html',
-    controller: prelloListController
+    controller: prelloListController,
+    bindings: {
+      list: '='
+    }
   });
 
   /** @ngInject */
   function prelloListController() {
-    this.title = 'New list';
-
-    this.cards = [];
+    this.$onInit = function () {
+      this.title = this.list.title;
+      this.cards = this.list.cards;
+    };
   }
 })(angular);
