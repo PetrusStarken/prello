@@ -1,5 +1,6 @@
 angular
   .module('app', [
     'ngMaterial',
-    'ngDraggable'
+    'ngDraggable',
+    'ngStorage'
   ]);

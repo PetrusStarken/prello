@@ -5,15 +5,18 @@
     templateUrl: 'app/components/list/list.html',
     controller: prelloListController,
     bindings: {
-      list: '='
+      guid: '<'
     }
   });
 
   /** @ngInject */
-  function prelloListController(guidService) {
+  function prelloListController(guidService, storageService) {
     this.$onInit = function () {
-      this.title = this.list.title;
-      this.cards = this.list.cards || [];
+      var list = storageService.getListByGuid(this.guid);
+
+      this.title = list.title;
+      this.guid = list.guid;
+      this.cards = list.cards;
     };
 
     this.addNewCard = _addNewCard;
@@ -27,6 +30,7 @@
 
       this.cards.push({
         guid: guidService.new(),
+        listGuid: this.guid,
         title: name
       });
 
@@ -40,6 +44,7 @@
     }
 
     function _onDropCard(card) {
+      card.listGuid = this.guid;
       this.cards.push(card);
     }
   }

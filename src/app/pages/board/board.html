@@ -2,7 +2,7 @@
 
 <md-content layout="row">
 
-  <prello-list flex="20" new="true" ng-repeat="list in $ctrl.lists" list="list"></prello-list>
+  <prello-list flex="20" new="true" ng-repeat="list in $ctrl.lists" guid="list.guid"></prello-list>
 
   <form role="form" ng-submit="$ctrl.addNewList($ctrl.newListName)" flex="20">
     <md-input-container>

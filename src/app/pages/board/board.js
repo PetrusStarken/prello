@@ -7,9 +7,11 @@
   });
 
   /** @ngInject */
-  function prelloBoardController() {
-    this.title = 'Default board';
-    this.lists = [];
+  function prelloBoardController(guidService, storageService) {
+    this.$onInit = function () {
+      this.title = storageService.getTitle();
+      this.lists = storageService.getLists();
+    };
 
     this.addNewList = _addNewList;
 
@@ -19,7 +21,9 @@
       }
 
       this.lists.push({
-        title: name
+        guid: guidService.new(),
+        title: name,
+        cards: []
       });
 
       delete this.newListName;
