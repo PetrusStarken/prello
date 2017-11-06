@@ -7,12 +7,23 @@ An trello based todo list
  - Add cards to lists
  - Move cards trought lists
  
-## Running prject
+## Running project
 
- - `npm run build`
- - `npm run serve`
- 
- 
-## TODOs
+### Install the dependencies and dev dependencies
 
- - Write a READ.me
+```
+npm install
+bower install
+```
+
+### Build
+
+```
+npm run build
+```
+ 
+### Run local server 
+
+```
+npm run serve
+```
